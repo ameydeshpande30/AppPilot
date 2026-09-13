@@ -16,6 +16,7 @@ if (menuToggle && siteNav) {
 }
 
 const workflowSteps = [...document.querySelectorAll('.workflow-step')];
+const workflow = document.querySelector('[data-workflow]');
 const stepDetails = workflowSteps.map((step) => step.querySelector('[data-step-detail]'));
 const demoAction = document.querySelector('[data-demo-action]');
 const replayButton = document.querySelector('[data-replay]');
@@ -79,6 +80,12 @@ const scenarios = {
 
 let activeScenario = 'feature';
 let activeWorkflow = 0;
+const workflowStepDelay = 2500;
+const approvalStep = 3;
+const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+let workflowTimer = null;
+let isWorkflowAutoplaying = false;
+let hasUsedViewportAutoplay = false;
 
 function setWorkflowStep(index) {
   activeWorkflow = index;
@@ -94,6 +101,42 @@ function setWorkflowStep(index) {
   if (demoTitle) demoTitle.textContent = copy[index][0];
   if (demoStatus) demoStatus.textContent = copy[index][1];
   if (demoAction) demoAction.innerHTML = `${copy[index][2]} <span aria-hidden="true">↗</span>`;
+}
+
+function updateReplayButton() {
+  if (replayButton) replayButton.textContent = isWorkflowAutoplaying ? 'Pause workflow' : 'Replay workflow';
+}
+
+function pauseWorkflowAutoplay() {
+  if (workflowTimer !== null) window.clearTimeout(workflowTimer);
+  workflowTimer = null;
+  isWorkflowAutoplaying = false;
+  hasUsedViewportAutoplay = true;
+  updateReplayButton();
+}
+
+function scheduleWorkflowStep() {
+  if (!isWorkflowAutoplaying) return;
+  if (activeWorkflow >= approvalStep) {
+    pauseWorkflowAutoplay();
+    return;
+  }
+
+  workflowTimer = window.setTimeout(() => {
+    workflowTimer = null;
+    if (!isWorkflowAutoplaying) return;
+    setWorkflowStep(activeWorkflow + 1);
+    scheduleWorkflowStep();
+  }, workflowStepDelay);
+}
+
+function startWorkflowAutoplay() {
+  if (reducedMotionQuery.matches || !workflowSteps.length) return;
+  if (workflowTimer !== null) window.clearTimeout(workflowTimer);
+  hasUsedViewportAutoplay = true;
+  isWorkflowAutoplaying = true;
+  updateReplayButton();
+  scheduleWorkflowStep();
 }
 
 function setScenario(id) {
@@ -117,15 +160,22 @@ function setScenario(id) {
 }
 
 workflowSteps.forEach((step) => {
-  step.addEventListener('click', () => setWorkflowStep(Number(step.dataset.step)));
+  step.addEventListener('click', () => {
+    pauseWorkflowAutoplay();
+    setWorkflowStep(Number(step.dataset.step));
+  });
 });
 
 scenarioButtons.forEach((button) => {
-  button.addEventListener('click', () => setScenario(button.dataset.scenario));
+  button.addEventListener('click', () => {
+    pauseWorkflowAutoplay();
+    setScenario(button.dataset.scenario);
+  });
 });
 
 if (demoAction) {
   demoAction.addEventListener('click', () => {
+    pauseWorkflowAutoplay();
     const nextStep = Math.min(activeWorkflow + 1, workflowSteps.length - 1);
     setWorkflowStep(nextStep);
   });
@@ -133,10 +183,33 @@ if (demoAction) {
 
 if (replayButton) {
   replayButton.addEventListener('click', () => {
+    if (isWorkflowAutoplaying) {
+      pauseWorkflowAutoplay();
+      return;
+    }
+
     setWorkflowStep(0);
-    workflowSteps[0]?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    workflowSteps[0]?.scrollIntoView({ behavior: reducedMotionQuery.matches ? 'auto' : 'smooth', block: 'nearest' });
+    startWorkflowAutoplay();
   });
 }
+
+setWorkflowStep(0);
+
+if (workflow && 'IntersectionObserver' in window && !reducedMotionQuery.matches) {
+  const workflowObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+      if (!hasUsedViewportAutoplay) startWorkflowAutoplay();
+    });
+  }, { threshold: 0.35 });
+  workflowObserver.observe(workflow);
+}
+
+reducedMotionQuery.addEventListener('change', (event) => {
+  if (event.matches && isWorkflowAutoplaying) pauseWorkflowAutoplay();
+});
 
 const lifeData = [
   ['01', 'Start with intent, not a ticket queue.', 'Whether it’s a new feature or something broken, describe the outcome in plain language. AppPilot turns intent into an explicit, inspectable engineering plan before any files change.'],
