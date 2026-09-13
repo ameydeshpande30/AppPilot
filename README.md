@@ -14,7 +14,7 @@ Then open `http://localhost:8000` in a browser.
 
 ## Deployment
 
-The site is deployed to GitHub Pages by `.github/workflows/deploy-pages.yml`. Every push to `main` uploads the repository contents as a Pages artifact and publishes them; the workflow can also be started manually from the Actions tab.
+The site is deployed to GitHub Pages by `.github/workflows/deploy-pages.yml`. Every push to `main` stages the deployable files (`index.html`, `styles.css`, `script.js`, `assets/`, `.nojekyll`) into `_site`, uploads them as a Pages artifact, and publishes them; the workflow can also be started manually from the Actions tab. The local reference brief is never copied into the deployed site.
 
 One-time setup: in the repository settings, under **Pages**, set **Source** to **GitHub Actions**.
 
