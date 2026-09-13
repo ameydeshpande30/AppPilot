@@ -3,9 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10231f">
+  <meta name="theme-color" content="#20201d">
   <meta name="description" content="AppPilot is an AI-native application control plane for safely evolving real software.">
-  <title>AppPilot - Build and evolve software by talking to it.</title>
+  <meta property="og:title" content="AppPilot - Turn product ideas into working software">
+  <meta property="og:description" content="Describe a product change in plain language. AppPilot plans, builds, tests, and previews it before anyone ships it.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <title>AppPilot - Turn product ideas into working software</title>
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
@@ -17,9 +21,9 @@
       <a class="brand" href="#top" aria-label="AppPilot home"><span class="brand-mark">A</span><span>AppPilot</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Menu</span></button>
       <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
-        <a href="#demo">Demo</a><a href="#how-it-works">How it works</a><a href="#architecture">Architecture</a><a href="#contact">Early access</a>
+        <a href="#what-is-it">What it is</a><a href="#demo">See it work</a><a href="#how-it-works">How it works</a><a href="#crm">Example app</a><a href="#contact">Book a demo</a>
       </nav>
-      <a class="button button-small button-dark header-cta" href="#contact">Build with us <span aria-hidden="true">↗</span></a>
+      <a class="button button-small button-dark header-cta" href="#contact">Book a demo <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
@@ -27,27 +31,27 @@
     <section class="hero section-dark" id="top">
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="container hero-content">
-        <div class="eyebrow eyebrow-light"><span class="pulse-dot"></span> The application control plane</div>
-        <h1>Build and evolve software <em>by talking to it.</em></h1>
-        <p class="hero-copy">AppPilot turns product requests into tested, reviewed, previewable, and deployable application changes.</p>
-        <div class="hero-actions"><a class="button button-accent" href="#demo">Watch the demo <span aria-hidden="true">↓</span></a><a class="text-link text-link-light" href="#how-it-works">See how it works <span aria-hidden="true">→</span></a></div>
-        <div class="hero-proof"><span>Designed for</span><strong>Founders</strong><strong>Product teams</strong><strong>Engineering leaders</strong></div>
+        <div class="eyebrow eyebrow-light"><span class="pulse-dot"></span> Software changes, without the guesswork</div>
+        <h1>Turn product ideas into <em>working software.</em></h1>
+        <p class="hero-copy">AppPilot is an AI product engineer that plans, builds, tests, and previews application changes before they go live.</p>
+        <div class="hero-actions"><a class="button button-accent" href="#contact">Book a demo <span aria-hidden="true">↗</span></a><a class="text-link text-link-light" href="#what-is-it">See what you get <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-proof"><span>For teams that need</span><strong>Faster delivery</strong><strong>Fewer surprises</strong><strong>Human approval</strong></div>
       </div>
       <div class="hero-art" aria-hidden="true">
         <img src="assets/hero-control-plane.svg" alt="" width="760" height="560">
       </div>
     </section>
 
-    <section class="intro section-cream">
+    <section class="intro section-cream" id="what-is-it">
       <div class="container intro-grid">
-        <div><div class="eyebrow">The shift</div><h2>From “write some code” to <span>operate a real application.</span></h2></div>
-        <div class="intro-copy"><p>AI made code generation faster. It did not make shipping trustworthy. AppPilot wraps a persistent engineering agent in the context, checks, permissions, previews, and human decisions that real software needs.</p><a class="text-link" href="#architecture">Explore the control system <span aria-hidden="true">→</span></a></div>
+        <div><div class="eyebrow">What AppPilot is</div><h2>A simpler way to move from <span>idea to release.</span></h2></div>
+        <div class="intro-copy"><p>You describe the change in plain language. AppPilot understands the application, makes the update, runs the checks, and gives your team a preview to approve.</p><a class="text-link" href="#how-it-works">See the five-step workflow <span aria-hidden="true">→</span></a></div>
       </div>
     </section>
 
     <section class="demo-section section-paper" id="demo">
       <div class="container">
-        <div class="section-heading heading-split"><div><div class="eyebrow">The killer demo</div><h2>One request.<br><span>A complete change.</span></h2></div><p>See how a product manager could move from an idea to a production-ready preview without manually editing a line of code.</p></div>
+        <div class="section-heading heading-split"><div><div class="eyebrow">See it work</div><h2>One request.<br><span>A complete change.</span></h2></div><p>Explore an interactive walkthrough of a product request becoming a reviewed application update. This is a front-end concept simulation.</p></div>
         <div class="demo-window">
           <div class="window-top"><div class="window-dots"><i></i><i></i><i></i></div><div class="window-title"><span class="live-dot"></span> appilot / change-042</div><span class="window-label">CONCEPT SIMULATION</span></div>
           <div class="demo-body">
@@ -71,19 +75,19 @@
       </div>
     </section>
 
-    <section class="crm-section section-cream">
+    <section class="crm-section section-cream" id="crm">
       <div class="container crm-grid"><div class="crm-copy"><div class="eyebrow">First template</div><h2>A deliberately small, seriously useful <span>AI CRM.</span></h2><p>The showcase application is familiar enough to understand in seconds, but real enough to prove the control plane: roles, customer profiles, deals, tasks, search, dashboards, and an automated test suite.</p><div class="tag-list"><span>Authentication</span><span>Customer profiles</span><span>Deals & pipeline</span><span>Tasks & notes</span><span>Admin controls</span><span>PostgreSQL</span></div><a class="text-link" href="#architecture">View the architecture <span aria-hidden="true">→</span></a></div><div class="crm-preview"><div class="crm-top"><span class="crm-brand"><span class="mini-mark">A</span> Acme CRM</span><span class="crm-user">Jordan Lee <i>JL</i></span></div><div class="crm-inner"><div class="crm-greeting"><div><span>MONDAY, SEP 13</span><h3>Good morning, Jordan</h3></div><span class="crm-notice">✦ Updated by AppPilot</span></div><div class="crm-metrics"><div><small>PIPELINE VALUE</small><strong>$284,600</strong><span class="metric-up">↑ 18.4%</span></div><div><small>OPEN DEALS</small><strong>24</strong><span class="metric-neutral">This month</span></div><div><small>WIN RATE</small><strong>68.2%</strong><span class="metric-up">↑ 4.1%</span></div></div><div class="crm-dashboard"><div class="dash-panel"><div class="panel-title"><strong>Revenue pipeline</strong><span>Last 30 days⌄</span></div><div class="bar-chart"><i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:68%"></i><i style="height:58%"></i><i style="height:79%"></i><i style="height:70%"></i><i style="height:92%"></i></div></div><div class="dash-panel vip-panel"><div class="panel-title"><strong><span class="vip-star">✦</span> VIP customers</strong><span class="panel-count">04</span></div><div class="vip-row"><i>MC</i><span><strong>Maya Chen</strong><small>Northstar Labs</small></span><b>$84k</b></div><div class="vip-row"><i>OR</i><span><strong>Owen Reed</strong><small>Orbit Systems</small></span><b>$61k</b></div><div class="vip-row"><i>SP</i><span><strong>Samira Patel</strong><small>Pixel & Co.</small></span><b>$42k</b></div></div></div></div></div></div></div>
     </section>
 
     <section class="architecture section-paper" id="architecture"><div class="container"><div class="section-heading heading-split"><div><div class="eyebrow">The control plane</div><h2>Every change leaves<br><span>a trail.</span></h2></div><p>AppPilot connects the product surface to the engineering systems that make change safe. No black box. No leap of faith.</p></div><div class="architecture-map"><img src="assets/architecture-map.svg" alt="Diagram showing AppPilot connecting a product request to the CRM application, repository, database, tests, preview, and deployment pipeline" width="1200" height="420"></div><div class="architecture-notes"><div><span class="note-index">01</span><strong>Persistent context</strong><p>README, architecture, schema, conventions, and test strategy travel with the application.</p></div><div><span class="note-index">02</span><strong>Isolated execution</strong><p>Every change runs in a workspace that can be inspected, tested, and discarded.</p></div><div><span class="note-index">03</span><strong>Human control</strong><p>Plans, diffs, findings, approvals, and promotion history stay visible to the team.</p></div></div></div></section>
 
-    <section class="reliability section-orange"><div class="container reliability-grid"><div><div class="eyebrow eyebrow-dark">Built for trust</div><h2>Speed is useful.<br><span>Confidence compounds.</span></h2><p>Software engineering discipline is not the tax on AI development. It is the product.</p></div><div class="reliability-list"><div><span class="reliability-icon">⌁</span><strong>Permissions</strong><p>Role-aware access for PMs, engineers, and admins.</p></div><div><span class="reliability-icon">✓</span><strong>Verification</strong><p>Unit, integration, API, and browser checks before promotion.</p></div><div><span class="reliability-icon">◌</span><strong>Auditability</strong><p>Change plan, diff, findings, approvals, and deployment history.</p></div><div><span class="reliability-icon">↶</span><strong>Recovery</strong><p>Rollback paths and the option to discard every preview.</p></div></div></div></section>
+    <section class="reliability section-orange" id="trust"><div class="container reliability-grid"><div><div class="eyebrow eyebrow-dark">What you get</div><h2>Move quickly.<br><span>Stay in control.</span></h2><p>Every team gets a faster path from request to release, with the evidence and decisions needed to ship confidently.</p></div><div class="reliability-list"><div><span class="reliability-icon">⌁</span><strong>For founders</strong><p>Turn customer ideas into a real, testable product without waiting on every small change.</p></div><div><span class="reliability-icon">✓</span><strong>For product teams</strong><p>Show an outcome, review a working preview, and keep the request connected to the result.</p></div><div><span class="reliability-icon">◌</span><strong>For operations</strong><p>Shape internal tools around the way your team works, with clear review points before release.</p></div><div><span class="reliability-icon">↶</span><strong>For engineering leaders</strong><p>Keep permissions, tests, audit history, and recovery paths around every AI-assisted change.</p></div></div></div></section>
 
-    <section class="templates section-cream"><div class="container"><div class="section-heading heading-split"><div><div class="eyebrow">The starting point</div><h2>One template first.<br><span>Many applications next.</span></h2></div><p>Start from production-ready foundations, then let teams shape them through conversation. The control plane stays consistent as the domain changes.</p></div><div class="template-grid"><article class="template-card template-current"><div class="template-icon">▦</div><span class="template-status">Available first</span><h3>AI CRM</h3><p>Profiles, pipeline, tasks, dashboards, and the clearest proof of the workflow.</p><a href="#demo" class="text-link">Explore the demo <span aria-hidden="true">→</span></a></article><article class="template-card"><div class="template-icon">◫</div><span class="template-status">Upcoming template</span><h3>Inventory ops</h3><p>Stock, suppliers, reorder points, and internal workflows shaped by the team.</p></article><article class="template-card"><div class="template-icon">◎</div><span class="template-status">Upcoming template</span><h3>Customer workspace</h3><p>Support, admin, and profile tools for the work happening behind the product.</p></article></div><div class="roadmap-strip"><span class="roadmap-label">More on the horizon</span><span>Customer support portals</span><span>Internal operations</span><span>Analytics dashboards</span><span>Custom app templates</span></div></div></section>
+    <section class="templates section-cream" id="templates"><div class="container"><div class="section-heading heading-split"><div><div class="eyebrow">Start with a foundation</div><h2>One template first.<br><span>Many applications next.</span></h2></div><p>Start from a production-ready foundation, then shape the application through conversation. The same review and release controls stay consistent as the domain changes.</p></div><div class="template-grid"><article class="template-card template-current"><div class="template-icon">▦</div><span class="template-status">Available first</span><h3>AI CRM</h3><p>Profiles, pipeline, tasks, dashboards, and the clearest proof of the workflow.</p><a href="#demo" class="text-link">Explore the walkthrough <span aria-hidden="true">→</span></a></article><article class="template-card"><div class="template-icon">◫</div><span class="template-status">Upcoming template</span><h3>Inventory ops</h3><p>Stock, suppliers, reorder points, and internal workflows shaped by the team.</p></article><article class="template-card"><div class="template-icon">◎</div><span class="template-status">Upcoming template</span><h3>Customer workspace</h3><p>Support, admin, and profile tools for the work happening behind the product.</p></article></div><div class="roadmap-strip"><span class="roadmap-label">More on the horizon</span><span>Customer support portals</span><span>Internal operations</span><span>Analytics dashboards</span><span>Custom app templates</span></div></div></section>
 
-    <section class="closing section-dark"><div class="container closing-inner"><div class="eyebrow eyebrow-light">The point of view</div><blockquote>“Do not build AI that can write code.<br><em>Build AI that can safely evolve software.</em>”</blockquote><div class="closing-rule"></div><p>AppPilot is a proposal for a new layer in the software stack: a persistent engineering partner with enough context to act, enough restraint to prove its work, and enough transparency for people to stay in control.</p></div></section>
+    <section class="closing section-dark" id="difference"><div class="container closing-inner"><div class="eyebrow eyebrow-light">Why it is different</div><blockquote>Code generation is the beginning.<br><em>Shipping is the product.</em></blockquote><div class="closing-rule"></div><p>AppPilot connects the request, application context, implementation, tests, preview, approval, and promotion in one visible workflow. It helps teams change real software without handing over control.</p></div></section>
 
-    <section class="contact section-paper" id="contact"><div class="container contact-grid"><div><div class="eyebrow">Start a conversation</div><h2>Build the next<br><span>control plane.</span></h2><p>For founders, product leaders, and engineers thinking about what software development looks like after code generation.</p><a class="button button-dark" href="mailto:hello@appilot.dev">hello@appilot.dev <span aria-hidden="true">↗</span></a></div><div class="contact-side"><div class="contact-line"><span>01</span><strong>Early access</strong><p>Share what you are building and where the current workflow breaks down.</p></div><div class="contact-line"><span>02</span><strong>Product conversations</strong><p>Talk through templates, engineering policies, and the first application to evolve.</p></div><div class="contact-line"><span>03</span><strong>Build with us</strong><p>Help turn a product concept into a safer way to ship real software.</p></div></div></div></section>
+    <section class="contact section-paper" id="contact"><div class="container contact-grid"><div><div class="eyebrow">Talk to the team</div><h2>See what AppPilot<br><span>could unlock.</span></h2><p>Tell us what your team is building and where the current workflow slows you down. We will show you how the product could fit.</p><a class="button button-dark" href="mailto:hello@appilot.dev">Book a demo <span aria-hidden="true">↗</span></a><p class="contact-email">Or email hello@appilot.dev</p></div><div class="contact-side"><div class="contact-line"><span>01</span><strong>Bring a real workflow</strong><p>Share the application or process you want to improve.</p></div><div class="contact-line"><span>02</span><strong>See the control layer</strong><p>Walk through planning, verification, preview, and approval.</p></div><div class="contact-line"><span>03</span><strong>Find your first use case</strong><p>Leave with a practical starting point for your team.</p></div></div></div></section>
   </main>
   <footer class="site-footer section-dark"><div class="container footer-inner"><a class="brand brand-light" href="#top"><span class="brand-mark">A</span><span>AppPilot</span></a><span>AI-native application control plane</span><span>© 2026 AppPilot concept</span></div></footer>
 </body>
