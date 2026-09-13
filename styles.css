@@ -64,6 +64,10 @@ h2 { margin:14px 0 0; font-size:clamp(36px, 4.8vw, 64px); letter-spacing:-.07em;
 .demo-section, .architecture, .templates, .contact { padding:132px 0; }
 .section-heading { margin-bottom:62px; }
 .heading-split > p { max-width:400px; margin:62px 0 0; color:var(--muted); font-size:16px; }
+.scenario-switch { display:inline-flex; gap:4px; margin-bottom:24px; padding:4px; background:#eee6d9; border:1px solid #ded4c5; }
+.scenario-tab { padding:10px 18px; border:0; background:transparent; color:#8d857c; font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; cursor:pointer; }
+.scenario-tab:hover { color:var(--ink); }
+.scenario-tab.is-active { color:var(--ink); background:#fffaf3; box-shadow:var(--shadow); }
 .demo-window { box-shadow:var(--shadow); background:#fffaf3; border:1px solid #ded4c5; }
 .window-top { display:flex; align-items:center; min-height:48px; padding:0 20px; border-bottom:1px solid #ded4c5; background:#eee6d9; }
 .window-dots { display:flex; gap:5px; }

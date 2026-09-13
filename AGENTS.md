@@ -41,11 +41,14 @@ The workflow is intentionally a deterministic front-end concept simulation.
 - `styles.css` - design tokens, layout, responsive rules, typography, accessibility states, and motion
 - `script.js` - mobile navigation, demo workflow state, lifecycle controls, active navigation, and scroll reveals
 - `assets/mark.svg` - local favicon and brand mark
+- `assets/favicon-16.png`, `assets/favicon-32.png`, `assets/apple-touch-icon.png` - PNG favicon fallbacks generated from `mark.svg`
 - `assets/hero-control-plane.svg` - hero artwork
 - `assets/architecture-map.svg` - local architecture diagram
 - `README.md` - short local preview instructions
-- `.gitignore` - excludes the source DOCX and local files
-- `AI_Application_Control_Plane_Portfolio_Concept.docx` - local reference brief only; never stage or deploy it
+- `.gitignore` - excludes the source PDF brief and local files
+- `AI_Application_Control_Plane_Portfolio_Concept.pdf` - local reference brief only; never stage or deploy it
+- `.github/workflows/deploy-pages.yml` - GitHub Pages deployment workflow
+- `.nojekyll` - disables Jekyll processing on GitHub Pages
 
 ## Local Preview
 
@@ -92,20 +95,22 @@ PY
 Confirm the source brief is ignored and not staged:
 
 ```bash
-git check-ignore -v AI_Application_Control_Plane_Portfolio_Concept.docx
+git check-ignore -v AI_Application_Control_Plane_Portfolio_Concept.pdf
 git status --short
 ```
 
-The ignore check should point to `.gitignore`, and the DOCX should not appear in Git status.
+The ignore check should point to `.gitignore`, and the PDF should not appear in Git status.
 
 ## Content Rules
 
-- Keep AppPilot positioned as an application control plane, not a generic coding chatbot.
+- Keep AppPilot positioned as an application control plane that maintains and extends real software, not a generic coding chatbot or a one-shot code generator.
+- Every capability claim should read as covering both adding features and fixing/maintaining existing behavior, with the agent responsible for the test, build, and ship steps.
 - Keep the CRM as the first proof point.
 - Describe Inventory Ops, Customer Workspace, customer support portals, internal operations, analytics dashboards, and custom application templates as upcoming or future directions.
 - Do not invent customer names, performance metrics, production claims, links, or personal details.
+- Do not add CVE remediation, dependency/framework upgrades, rollback and recovery, drift/health monitoring, or refactoring/tech-debt claims - these are explicitly out of scope for now.
 - Keep the simulated nature of the workflow clear whenever adding copy that could be mistaken for a live product capability.
-- Do not add the DOCX, generated PDF exports, or other brief artifacts to the deployed site.
+- Do not add the PDF brief, generated exports, or other brief artifacts to the deployed site.
 
 ## Design Direction
 
